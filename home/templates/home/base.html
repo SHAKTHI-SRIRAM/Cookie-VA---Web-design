@@ -16,12 +16,44 @@
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Averia Serif Libre' rel='stylesheet'>
+
     <title>Cookie VA</title>
 </head>
 
 <body>
-    BASE WORKS!!..
 
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="" class="brand-logo center"><h4 class="title">Cookie The Virtual Assisstant</h4></a>
+            <ul id="nav" class="left">
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sidebar icons -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="material-icons menu-icon" id="menu">menu</i>
+        <i class="material-icons menu-icon" id="cancel">cancel</i>
+    </label>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <header>Menu</header>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Cookie</a></li>
+            <li><a href="">Next Update</a></li>
+            <li><a href="">Cookie commands</a></li>
+        </ul>
+    </div>
+    
     {% block content %}
 
     {% endblock %}
