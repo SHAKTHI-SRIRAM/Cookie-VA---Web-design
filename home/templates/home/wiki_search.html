@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<!-- Main conatiner -->
 <div id="main-container">
     <div class="container frame" id="search-container">
         <div class="title-tagline">
             <h2 class="center" id="tagline">Cookie is here to help you!!..</h2>
+            <h4 class="center grey-text">What do you want to search in Wikipedia</h4>
         </div>
         <!-- Input area -->
-        <form action="{% url 'new_search' %}" method="post">
+        <form action="{% url 'wiki_response' %}" method="post">
             {% csrf_token %}
             <div class="input-field">
                 <div class="row">
@@ -28,13 +28,6 @@
                 </div>
             </div>
         </form>
-    </div>
-    <!-- Cookie commands -->
-    <div class="container frame" id="">
-        <div id="userules">
-            <h4 class="brown-text center">Response for "{{ search }}"</h4>
-            <h6>{{ response }}</h6>
-        </div>
     </div>
 </div>
 {% endblock content %}
