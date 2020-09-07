@@ -21,13 +21,22 @@
                         <button class="btn waves-effect waves-light cyan" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
-                        <button class="btn waves-effect waves-light cyan" type="submit" name="action">
-                            <i class="material-icons">mic</i>
-                        </button>
+
                     </div>
                 </div>
             </div>
         </form>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="record">
+            <button class="btn waves-effect waves-light pink center circle" type="submit" name="action"
+                style="height: 110px; width: 100px; left: 30vw;">
+                <i class="large material-icons" style="font-size: 60px;">mic</i>
+            </button>
+        </form>
+        <div class="response-container">
+            <h4 class="center grey-text" style="padding-bottom: 20px;">{{ response }}</h4>
+        </div>
     </div>
 </div>
 {% endblock content %}

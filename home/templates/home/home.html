@@ -1,7 +1,6 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-
 <!-- Main conatiner -->
 <div id="main-container" >
     <div class="container frame" id="search-container">
@@ -13,15 +12,21 @@
             {% csrf_token %}
             <div class="input-field">
                 <div class="row">
-                    <div class="col s12 m12 l9">
+                    <div class="col s12 m11 l11">
+                        <div class="l9 s9 m9">
                         <input type="text" name="search" class="validate" placeholder="Ask cookie">
-                    </div>
-
-                    <div class="col s12 m12 l3">
-                        <button class="btn waves-effect waves-light cyan" type="submit" name="action">Submit
+                        </div>
+                        <div class="l3 s3 m3 right">
+                        <button class="btn waves-effect waves-light cyan right" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
-                        <button class="btn waves-effect waves-light cyan" type="submit" name="action">
+                        </div>
+                    </div>
+        </form>
+                    <div class="col s12 m1 l1">
+        <form action="{% url 'voice_search' %}" method="get">
+            {% csrf_token %}
+                        <button class="btn waves-effect waves-light cyan right" type="submit" name="action">
                             <i class="material-icons">mic</i>
                         </button>
                     </div>
@@ -29,32 +34,28 @@
         </form>
                 <div class="row">
                     <div class="col s3 l3 m3">
-                        <form action="{% url 'google_search' %}" method="post">
-                            {% csrf_token %}
+                        <form action="{% url 'google_search' %}" method="GET">
                             <button class="btn waves-effect waves-light green" style="width: 100%;" type="submit" name="action">
                                 Google<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
                     <div class="col s3 l3 m3">
-                        <form action="{% url 'wiki_search' %}" method="post">
-                            {% csrf_token %}
+                        <form action="{% url 'wiki_search' %}" method="GET">
                             <button class="btn waves-effect waves-light blue" style="width: 100%;" type="submit" name="action">
                                 Wikipedia<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
                     <div class="col s3 l3 m3">
-                        <form action="{% url 'ytube_search' %}" method="post">
-                            {% csrf_token %}
+                        <form action="{% url 'ytube_search' %}" method="GET">
                             <button class="btn waves-effect waves-light red" style="width: 100%;" type="submit" name="action">
                                 Youtube<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
                     <div class="col s3 l3 m3">
-                        <form action="{% url 'gmaps_search' %}" method="post">
-                            {% csrf_token %}
+                        <form action="{% url 'gmaps_search' %}" method="GET">
                             <button class="btn waves-effect waves-light yellow" style="width: 100%;" type="submit" name="action">
                                 Google Maps<i class="material-icons right">send</i>
                             </button>
@@ -69,15 +70,11 @@
             <h4 class="brown-text center">How to use cookie??</h4>
             <ul>
                 <li><i class="material-icons">star</i>Cookie is a trial virtual assisstant which performs the basic commands given to it.</li>
-                <li><i class="material-icons">star</i>You can either search by typing or use voice commands.  </li>
-                <li><i class="material-icons">star</i>Activate voice commands by clicking the mic button</li>
-                <li><i class="material-icons">star</i>Type or speak Google to search in Google.</li>
-                <li><i class="material-icons">star</i>Type or speak Wikipedia to search in Wikipedia.</li>
-                <li><i class="material-icons">star</i>Type or speak YouTube to search in YouTube.</li>
-                <li><i class="material-icons">star</i>Type or speak Location to search in Google Maps.</li>
+                <li><i class="material-icons">star</i>You can start searching in Google, Wikipedia, YouTube and Google Maps by clicking the buttons given below search bar.</li>
+                <li><i class="material-icons">star</i>Voice queries can also be recognized by Cookie.</li>
+                <li><i class="material-icons">star</i>To know more aboout Cookie read the Cookie Documentation given in the menu.</li>
             </ul>
-        </div>
+        </div>  
     </div>
 </div>
-
 {% endblock content %}

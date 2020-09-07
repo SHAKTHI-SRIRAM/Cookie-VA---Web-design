@@ -16,38 +16,13 @@ def index(request):
     return render(request, 'home/home.html')
 
 
+def cookie_docs(request):
+    return render(request, 'home/cookie_docs.html')
+
+
 def new_search(request):
     search = request.POST.get('search')
-    if 'good morning cookie' in search:
-        response = 'good morning'
-    elif 'good afternoon cookie' in search:
-        response = 'good afternoon'
-    elif 'how are you doing cookie' in search:
-        response = 'Pretty Well'
-    elif 'how are you cookie' in search:
-        response = 'I am fine how about you'
-    elif 'what is your name' in search:
-        response = 'My name is Cookie'
-    elif 'who are you' in search:
-        response = 'My name is Cookie. The Virtual Assistant. Version 1.0'
-    elif 'tell me about yourself' in search:
-        response = 'I am Cookie. The Virtual Assistant. Version 1.0'
-    elif 'hey cookie what is the time' in search:
-        response = ctime()
-    elif 'what is the time cookie' in search:
-        response = ctime()
-    elif 'what is the time' in search:
-        response = ctime()
-    elif 'hey cookie what time is it' in search:
-        response = ctime()
-    elif 'what time is it cookie' in search:
-        response = ctime()
-    elif 'tell me the time cookie' in search:
-        response = ctime()
-    elif 'hey cookie tell me the time' in search:
-        response = ctime()
-    else:
-        response = "Sorry I can't understand you!!.."
+    response = respond(search)
 
     context = {
         'search': search,
@@ -57,19 +32,125 @@ def new_search(request):
 
 
 def google_search(request):
-    return render(request, 'home/google_search.html')
+    if request.method == 'GET':
+        return render(request, 'home/google_search.html')
+    elif request.method == 'POST':
+        data = request.POST.get('record')
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            voice_data = r.record(source, duration=5)
+            try:
+                voice_query = r.recognize_google(voice_data)
+                url = 'https://google.com/search?q=' + voice_query
+                webbrowser.get().open(url)
+                response = 'Your search results will be opened in a new tab'
+                context = {
+                    'response': response,
+                }
+                return render(request, 'home/google_search.html', context)
+            except sr.UnknownValueError:
+                voice_query = "Could not understand audio"
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/google_search.html', context)
+            except sr.RequestError as e:
+                voice_query = "Could not request results; {0}".format(e)
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/google_search.html', context)
+    
 
 
 def wiki_search(request):
-    return render(request, 'home/wiki_search.html')
+    if request.method == 'GET':
+        return render(request, 'home/wiki_search.html')
+    elif request.method == 'POST':
+        data = request.POST.get('record')
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            voice_data = r.record(source, duration=5)
+            try:
+                voice_query = r.recognize_google(voice_data)
+                url = 'https://en.wikipedia.org/wiki/Special:Search?search=' + voice_query
+                webbrowser.get().open(url)
+                context = {
+                    'response': 'Your search results will be opened in a new tab!!..',
+                }
+                return render(request, 'home/wiki_search.html', context)
+            except sr.UnknownValueError:
+                voice_query = "Could not understand audio"
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/wiki_search.html', context)
+            except sr.RequestError as e:
+                voice_query = "Could not request results; {0}".format(e)
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/wiki_search.html', context)
+    
 
 
 def ytube_search(request):
-    return render(request, 'home/ytube_search.html')
+    if request.method == 'GET':
+        return render(request, 'home/ytube_search.html')
+    elif request.method == 'POST':
+        data = request.POST.get('record')
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            voice_data = r.record(source, duration=5)
+            try:
+                voice_query = r.recognize_google(voice_data)
+                kit.playonyt(voice_query)
+                context = {
+                    'response': 'Your search results will be opened in a new tab!!..',
+                }
+                return render(request, 'home/ytube_search.html', context)
+            except sr.UnknownValueError:
+                voice_query = "Could not understand audio"
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/ytube_search.html', context)
+            except sr.RequestError as e:
+                voice_query = "Could not request results; {0}".format(e)
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/ytube_search.html', context)
 
 
 def gmaps_search(request):
-    return render(request, 'home/gmaps_search.html')
+    if request.method == 'GET':
+        return render(request, 'home/gmaps_search.html')
+    elif request.method == 'POST':
+        data = request.POST.get('record')
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            voice_data = r.record(source, duration=5)
+            try:
+                voice_query = r.recognize_google(voice_data)
+                url = 'https://google.nl/maps/place/' + voice_query + '/&amp;'
+                webbrowser.get().open(url)
+                context = {
+                    'response': 'Your search results will be opened in a new tab!!..',
+                }
+                return render(request, 'home/gmaps_search.html', context)
+            except sr.UnknownValueError:
+                voice_query = "Could not understand audio"
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/gmaps_search.html', context)
+            except sr.RequestError as e:
+                voice_query = "Could not request results; {0}".format(e)
+                context = {
+                    'response': voice_query,
+                }
+                return render(request, 'home/gmaps_search.html', context)
 
 
 def google_response(request):
@@ -111,25 +192,58 @@ def gmaps_response(request):
     return render(request, 'home/gmaps_response.html', context)
 
 
-def listen_audio(ask=False):
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        if ask:
-            print(ask)
-        voice_data = r.record(source, duration=5)
-        try:
-            said = r.recognize_google(voice_data)
-            print(said)
-        except Exception as e:
-            print('Recognizing' + str(e))
-    return said
+
+def voice_search(request):
+    if request.method == 'GET':
+        return render(request, 'home/voice_search.html')
+    elif request.method == 'POST':
+        data = request.POST.get('record')
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            voice_data = r.record(source, duration=5)
+            try:
+                voice_query = r.recognize_google(voice_data)
+            except sr.UnknownValueError:
+                voice_query = "Could not understand audio"
+            except sr.RequestError as e:
+                voice_query = "Could not request results; {0}".format(e)
+        
+        output = respond(voice_query)
+        context = {
+            'response': output,
+        }
+        return render(request, 'home/voice_search.html', context)
 
 
-def speak(text):
-    tts = gTTS(text=text, lang='en', slow=False)
-    r = random.randint(1, 100000000)
-    ado_file = 'ado-' + str(r) + '.mp3'
-    tts.save(ado_file)
-    playsound.playsound(ado_file)
-    print(text)
-    os.remove(ado_file)
+def respond(search):
+    if 'good morning cookie' in search:
+        response = 'good morning'
+    elif 'good afternoon cookie' in search:
+        response = 'good afternoon'
+    elif 'how are you doing cookie' in search:
+        response = 'Pretty Well'
+    elif 'how are you cookie' in search:
+        response = 'I am fine how about you'
+    elif 'what is your name' in search:
+        response = 'My name is Cookie'
+    elif 'who are you' in search:
+        response = 'My name is Cookie. The Virtual Assistant. Version 1.0'
+    elif 'tell me about yourself' in search:
+        response = 'I am Cookie. The Virtual Assistant. Version 1.0'
+    elif 'hey cookie what is the time' in search:
+        response = ctime()
+    elif 'what is the time cookie' in search:
+        response = ctime()
+    elif 'what is the time' in search:
+        response = ctime()
+    elif 'hey cookie what time is it' in search:
+        response = ctime()
+    elif 'what time is it cookie' in search:
+        response = ctime()
+    elif 'tell me the time cookie' in search:
+        response = ctime()
+    elif 'hey cookie tell me the time' in search:
+        response = ctime()
+    else:
+        response = "Sorry I can't understand you!!.. Try searching in the Google option."
+    return response

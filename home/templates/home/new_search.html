@@ -21,9 +21,6 @@
                         <button class="btn waves-effect waves-light cyan" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
-                        <button class="btn waves-effect waves-light cyan" type="submit" name="action">
-                            <i class="material-icons">mic</i>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -32,8 +29,7 @@
     <!-- Cookie commands -->
     <div class="container frame" id="">
         <div id="userules">
-            <h4 class="brown-text center">Response for "{{ search }}"</h4>
-            <h6>{{ response }}</h6>
+            <h4 class="brown-text center">{{ response|title }}</h4>
         </div>
     </div>
 </div>

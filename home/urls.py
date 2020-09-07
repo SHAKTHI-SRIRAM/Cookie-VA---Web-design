@@ -12,4 +12,6 @@ urlpatterns = [
     path('wiki_response', views.wiki_response, name='wiki_response'),
     path('ytube_response', views.ytube_response, name='ytube_response'),
     path('gmaps_response', views.gmaps_response, name='gmaps_response'),
+    path('voice_search', views.voice_search, name='voice_search'),
+    path('cookie_docs', views.cookie_docs, name='cookie_docs')
 ]
