@@ -20,6 +20,10 @@ def cookie_docs(request):
     return render(request, 'home/cookie_docs.html')
 
 
+def new_updates(request):
+    return render(request, 'home/new_updates.html')
+
+
 def new_search(request):
     search = request.POST.get('search')
     response = respond(search)

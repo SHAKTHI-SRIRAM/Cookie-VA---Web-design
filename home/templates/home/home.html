@@ -33,28 +33,28 @@
                 </div>
         </form>
                 <div class="row">
-                    <div class="col s3 l3 m3">
+                    <div class="col s12 l3 m3">
                         <form action="{% url 'google_search' %}" method="GET">
                             <button class="btn waves-effect waves-light green" style="width: 100%;" type="submit" name="action">
                                 Google<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
-                    <div class="col s3 l3 m3">
+                    <div class="col s12 l3 m3">
                         <form action="{% url 'wiki_search' %}" method="GET">
                             <button class="btn waves-effect waves-light blue" style="width: 100%;" type="submit" name="action">
                                 Wikipedia<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
-                    <div class="col s3 l3 m3">
+                    <div class="col s12 l3 m3">
                         <form action="{% url 'ytube_search' %}" method="GET">
                             <button class="btn waves-effect waves-light red" style="width: 100%;" type="submit" name="action">
                                 Youtube<i class="material-icons right">send</i>
                             </button>
                         </form>
                     </div>
-                    <div class="col s3 l3 m3">
+                    <div class="col s12 l3 m3">
                         <form action="{% url 'gmaps_search' %}" method="GET">
                             <button class="btn waves-effect waves-light yellow" style="width: 100%;" type="submit" name="action">
                                 Google Maps<i class="material-icons right">send</i>
@@ -74,7 +74,19 @@
                 <li><i class="material-icons">star</i>Voice queries can also be recognized by Cookie.</li>
                 <li><i class="material-icons">star</i>To know more aboout Cookie read the Cookie Documentation given in the menu.</li>
             </ul>
-        </div>  
+        </div>
+        <div class="bottom-tab">
+            <h5>If you like our web application and want to support us or criticize us please leave your reviews in
+                <b><a href="https://cookiereview.herokuapp.com">cookiereview.herokuapp.com</a> </b> <br> Your
+                reviews will be very helpful for us!!..</h5>
+        </div>
+        <div class="bottom-tab">
+            <h5>
+                Learn more about programming and become a master programmer in <a
+                    href="https://cookielearning.herokuapp.com"><b>cookielearning.herokuapp.com</b></a>. This is another
+                branch of Cookie.
+            </h5>
+        </div>
     </div>
 </div>
 {% endblock content %}

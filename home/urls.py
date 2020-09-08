@@ -13,5 +13,6 @@ urlpatterns = [
     path('ytube_response', views.ytube_response, name='ytube_response'),
     path('gmaps_response', views.gmaps_response, name='gmaps_response'),
     path('voice_search', views.voice_search, name='voice_search'),
-    path('cookie_docs', views.cookie_docs, name='cookie_docs')
+    path('cookie_docs', views.cookie_docs, name='cookie_docs'),
+    path('new_updates', views.new_updates, name='new_updates')
 ]

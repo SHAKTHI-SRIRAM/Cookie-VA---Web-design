@@ -36,9 +36,9 @@
     <div class="sidebar">
         <header class="cyan pink-text">Menu</header>
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'cookie_docs' %}">Cookie Docs</a></li>
-            <li><a href="">Next Updates</a></li>
+            <li><a href="{% url 'new_updates' %}">Next Updates</a></li>
         </ul>
     </div>
     {% block content %}

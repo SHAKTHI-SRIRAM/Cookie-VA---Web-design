@@ -9,9 +9,11 @@ body {
     background-size: cover;
     background-position: center;
 }
+
 .nav-wrapper {
     background: linear-gradient(120deg, cyan, magenta);
 }
+
 .menu-icon {
     color: white;
 }
@@ -105,15 +107,19 @@ label #cancel {
     background: whitesmoke;
     border-radius: 40px;
 }
+
 #search-container {
     padding: 5vw auto;
 }
-.title-tagline{
+
+.title-tagline {
     padding: 1.2vw;
 }
+
 .input-field {
     padding: 3vw;
 }
+
 #main-container {
     border-radius: 2vw;
     padding: 20px;
@@ -127,6 +133,7 @@ label #cancel {
 #userules {
     border-radius: 3vw;
     border: 1px solid rgba(117, 48, 48, 1);
+    border-bottom: none;
 }
 
 #userules ul li {
@@ -134,4 +141,51 @@ label #cancel {
     font-size: 1.6vw;
     font-family: 'Averia Serif Libre';
     line-height: 3vw;
+}
+
+/* Documentation */
+#docs-title {
+    font-family: 'Acme';
+}
+
+#introduction-tab h4,
+#about-tab h4,
+#what-tab h4,
+.bottom-tab h4 {
+    padding-left: 3vw;
+}
+
+.doc-head {
+    font-family: 'Alata';
+}
+
+.doc-content,
+.bottom-tab,
+.bottom-tab h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 3vw;
+    text-align: justify;
+}
+
+.update-version {
+    padding: 1vw;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 420px) {
+    .title {
+        font-size: 5vw;
+    }
+    #tagline {
+        font-size: 5vw;
+    }
+    #userules ul li {
+        font-size: 3.4vw;
+    }
+    .bottom-tab h5 {
+        font-size: 4vw;
+    }
+    #docs-title {
+        font-size: 11vw;
+    }
 }
